@@ -53,5 +53,8 @@ $(document).ready(function(){
             event.preventDefault();
         }
     });
+    $('a').click(function(){
+        $( "body").animate({ scrollTop: 0 }, 2500);
+    });
 
 });

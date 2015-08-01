@@ -54,7 +54,7 @@
                <img class="media-object" ng-click="play_video(v.url)" ng-src="https:{{v.thumb_url}}" onError="this.onerror=null;this.src='images/YouTube-logo-full_color.png';"  title="{{v.name}}">
            </div>
            <div class="col-md-8">
-               <a ng-click="play_video(v.url)">{{ v.name }}</a>
+               <a class="video_name"ng-click="play_video(v.url)">{{ v.name }}</a>
                <p>{{v.meta_info}}</p>
                <p>{{v.description }}</p>
                <!--<p>{{v.url}}</p>-->
