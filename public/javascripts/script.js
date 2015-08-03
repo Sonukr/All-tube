@@ -3,7 +3,7 @@ var app = angular.module('Alltube', []);
 
 
 app.controller('MainCtrl', function($scope, $http, $sce) {
-    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY?rel=0&showinfo=0&modestbranding=1&autohide=1&theme=light&hd=1");
+    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY");
 
     var url = 'https://api-videos.herokuapp.com/youtube';
         $http.get(url)
@@ -22,7 +22,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     };
 
     $scope.play_video = function(url){
-        var url_id = "https://www.youtube.com/embed/" + url+"?rel=0&showinfo=0&modestbranding=1&autohide=1&theme=light&hd=1";
+        var url_id = "https://www.youtube.com/embed/" + url+"";
         $scope.video_url = $sce.trustAsResourceUrl(url_id);
     };
 
