@@ -34,6 +34,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
         $http.get(url)
             .success(function (data) {
                 $scope.videos = data.videos;
+                $scope.page = data.page;
 
             });
 
