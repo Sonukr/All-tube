@@ -13,7 +13,6 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
             });
     $scope.searchvideo = function (evt) {
         var query = $scope.query;
-        console.log(query)
         var url = 'https://api-videos.herokuapp.com/youtube?query=' + query;
         $http.get(url)
             .success(function (data) {
@@ -30,7 +29,6 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     $scope.search_by_paging = function(page_link){
 
         var url = 'https://api-videos.herokuapp.com/youtube/page?page=' + page_link;
-        console.log(url)
         $http.get(url)
             .success(function (data) {
                 $scope.videos = data.videos;
