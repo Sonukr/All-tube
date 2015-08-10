@@ -51,10 +51,10 @@
     <div class="col-md-12" ng-repeat="v in videos">
        <div class="row">
            <div class="col-md-2">
-               <img class="media-object" ng-click="play_video(v.url)" ng-src="https://img.youtube.com/vi/{{v.url}}/mqdefault.jpg" onError="this.onerror=null;this.src='images/YouTube-logo-full_color.png';"  title="{{v.name}}">
+               <img class="media-object" ng-click="play_video(v.embed_url)" ng-src="https://img.youtube.com/vi/{{v.video_id}}/mqdefault.jpg" onError="this.onerror=null;this.src='images/YouTube-logo-full_color.png';"  title="{{v.name}}">
            </div>
            <div class="col-md-8">
-               <a class="video_name"ng-click="play_video(v.url)">{{ v.name }}</a>
+               <a class="video_name"ng-click="play_video(v.embed_url)">{{ v.name }}</a>
                <p>{{v.meta_info}}</p>
                <p>{{v.description }}</p>
                <!--<p>{{v.url}}</p>-->
