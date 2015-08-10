@@ -23,3 +23,6 @@ a,a:hover{
 .pages{
     margin-left: 35%;
 }
+a.pull-right{
+    font-size: 10px;
+}
