@@ -3,7 +3,8 @@ var app = angular.module('Alltube', []);
 
 
 app.controller('MainCtrl', function($scope, $http, $sce) {
-    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY");
+    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY?autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
+
 
     var url = 'https://api-videos.herokuapp.com/youtube';
         $http.get(url)
@@ -12,19 +13,21 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
              $scope.page = data.page;
             });
     $scope.searchvideo = function (evt) {
+        $(".loading").fadeIn(10);
         var query = $scope.query;
         var url = 'https://api-videos.herokuapp.com/youtube?query=' + query;
         $http.get(url)
             .success(function (data) {
                 $scope.videos = data.videos;
                 $scope.page = data.page;
-
+                $(".loading").fadeOut(100);
             });
     };
 
     $scope.play_video = function(url){
-        var url_id = "https://www.youtube.com/embed/" + url+"";
+        var url_id = "https://www.youtube.com/embed/" + url+"?autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1";
         $scope.video_url = $sce.trustAsResourceUrl(url_id);
+        $("html, body").animate({ scrollTop: 0 }, 1000);
     };
 
     $scope.search_by_paging = function(page_link){
@@ -38,14 +41,30 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
             });
 
     };
+    $scope.download_video = function(video_id){
+        var down_url = 'https://api-videos.herokuapp.com/download?query='+ video_id
+        $http.get(down_url )
+            .success(function(data){
+                console.log(data.urls)
+                $scope.download_url = data.urls;
+
+            });
+
+    };
 
 })
 
 
 //===============================================================
 
-
+$(window).load(function(){
+    $(".loading").fadeOut(100);
+});
 $(document).ready(function(){
+    //for fitvid
+    $("#main").fitVids();
+    //$(".loading").fadeOut(100);
+
     $('input[type=text]').keypress(function(event){
         if(event.which == 13){
             $("#search").click();
@@ -54,7 +73,8 @@ $(document).ready(function(){
         }
     });
     $('a').click(function(){
-        $( "body").animate({ scrollTop: 0 }, 2500);
+        $( "body").animate({ scrollTop: 0 }, 1000);
     });
 
 });
+

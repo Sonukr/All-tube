@@ -5,14 +5,15 @@ body{
 .navbar-brand{
     font-family: 'Orbitron', sans-serif;
 }
-.main{
+.main_page{
     margin-top: 50px;
 }
-img{
+.media-object{
     width: 100%;
     height: 20%;
+    display:block;
 }
-img:hover{
+.media-object:hover{
     cursor: pointer;
 }
 a,a:hover{
@@ -25,4 +26,72 @@ a,a:hover{
 }
 a.pull-right{
     font-size: 10px;
+}
+.download{
+    color:#fff;
+    text-decoration: none;
+}
+.loading {
+    width: auto;
+    z-index: 9999;
+    box-shadow: 0 110px 0 9999px rgba(13,13,13,.8);
+    position: relative;
+
+}
+.loading .fa-spinner{
+    font-size: 100px;
+    color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);;
+}
+button.btn.btn-success {
+    /* position: relative; */
+    float: right;
+}
+
+
+
+
+/*media query*/
+
+@media all and (max-width: 1024px){
+    .navbar-form .form-group{
+        width: 79% !important;
+    }
+    .media-object{
+        width: 25%;
+        height: 30%;
+        float: left;
+        margin-right: 10px;
+    }
+    p{
+        margin-left: 21%;
+        display: -webkit-box;
+    }
+}
+
+@media all and (max-width: 768px){
+    .navbar-form .form-group{
+        width: 100% !important;
+    }
+    .media-object{
+        width: 20%;
+        height: 45%;
+        float: left;
+        margin-right: 10px;
+    }
+
+    p{margin-left: 22%; display: -webkit-box;}
+    a.video_name{
+        font-size: 15px;
+        display: -webkit-box;
+    }
+    button#search{
+        display: none;
+    }
+    .main_page {
+        margin-top: 30%;
+    }
 }
