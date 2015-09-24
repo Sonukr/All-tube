@@ -37,7 +37,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
             .success(function (data) {
                 $scope.videos = data.videos;
                 $scope.page = data.page;
-                $(".loading").fadeOut(100);
+                $(".loading").fadeOut(1000);
 
             });
 
