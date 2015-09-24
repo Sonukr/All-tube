@@ -31,12 +31,13 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     };
 
     $scope.search_by_paging = function(page_link){
-
+        $(".loading").fadeIn(10);
         var url = 'https://api-videos.herokuapp.com/youtube/page?page=' + page_link;
         $http.get(url)
             .success(function (data) {
                 $scope.videos = data.videos;
                 $scope.page = data.page;
+                $(".loading").fadeOut(100);
 
             });
 
