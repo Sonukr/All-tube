@@ -62,6 +62,7 @@ $(window).load(function(){
     $(".loading").fadeOut(100);
 });
 $(document).ready(function(){
+    $('.dropdown-toggle').dropdown();
     //for fitvid
     $("#main").fitVids();
     //$(".loading").fadeOut(100);
