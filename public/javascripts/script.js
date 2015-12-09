@@ -46,9 +46,9 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
         var down_url = 'https://api-videos.herokuapp.com/download?query='+ video_id
         $http.get(down_url )
             .success(function(data){
-                console.log(data.urls)
+                //console.log(data.urls);
+                //console.table(data.urls, "best_download_url");
                 $scope.download_url = data.urls;
-
             });
 
     };
