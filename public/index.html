@@ -67,9 +67,6 @@
                            <a class="video_name"ng-click="play_video(v.embed_url)">{{ v.name }}</a>
                            <p>{{v.meta_info}}</p>
                            <p>{{v.description }}</p>
-                           <!--<button  class="btn btn-success" download="{{v.name}}" ng-click="download_video(v.video_id)">-->
-                               <!--<a href="http://en.savefrom.net/#url=https://www.youtube.com{{v.full_url}}" target="_blank" class="download">Download</a>-->
-                           <!--</button>-->
                            <div class="dropdown">
                                <button  class="btn " id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ng-click="download_video(v.video_id)">
                                    Download trigger
@@ -78,8 +75,10 @@
                                <ul class="dropdown-menu" aria-labelledby="dLabel" ng-repeat="u in download_url">
                                    <li>
                                        <a href="{{u.best_download_url}}" download="{{u.best_download_url}}">{{u.title}}</a>
-
                                    </li>
+                               </ul>
+                               <ul class="dropdown-menu loading_url"  aria-labelledby="dLabel">
+                                   <li> <i class="fa fa-spinner fa-spin"></i></li>
                                </ul>
                            </div>
                        </div>

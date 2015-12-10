@@ -43,12 +43,14 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 
     };
     $scope.download_video = function(video_id){
+        $scope.download_url = ' ';
         var down_url = 'https://api-videos.herokuapp.com/download?query='+ video_id
         $http.get(down_url )
             .success(function(data){
                 //console.log(data.urls);
                 //console.table(data.urls, "best_download_url");
                 $scope.download_url = data.urls;
+                $(".loading_url").fadeOut(1000);
             });
 
     };
