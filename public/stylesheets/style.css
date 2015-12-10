@@ -48,6 +48,9 @@ a.pull-right{
     left: 50%;
     transform: translate(-50%,-50%);;
 }
+.loading_url{
+    text-align: center;
+}
 button.btn.btn-success {
     /* position: relative; */
     float: right;
