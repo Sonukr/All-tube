@@ -3,10 +3,10 @@ var app = angular.module('Alltube', []);
 
 
 app.controller('MainCtrl', function($scope, $http, $sce) {
-    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY?autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
+    $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY?autoplay=0&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
 
 
-    var url = 'https://api-videos.herokuapp.com/youtube';
+    var url = 'https://api-videos.herokuapp.com/youtube?query=new year';
         $http.get(url)
              .success(function(data){
              $scope.videos = data.videos;
@@ -58,7 +58,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 })
 
 
-//===============================================================
+//========================      Jquery     =======================================
 
 $(window).load(function(){
     $(".loading").fadeOut(100);
