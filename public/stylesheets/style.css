@@ -3,7 +3,9 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
 }
 .navbar-brand{
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Marck Script', cursive;
+    font-weight: 600;
+    font-size: 21px;
 }
 .main_page{
     margin-top: 50px;
@@ -17,7 +19,6 @@ body{
     cursor: pointer;
 }
 a,a:hover{
-    font-size: 19px;
     cursor: pointer;
     text-decoration: none;
 }
