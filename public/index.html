@@ -66,28 +66,28 @@
                            <a class="video_name"ng-click="play_video(v.embed_url)">{{ v.name }}</a>
                            <p>{{v.meta_info}}</p>
                            <p>{{v.description }}</p>
-                           <!--<div class="dropdown">-->
-                               <!--<button  class="btn " id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ng-click="download_video(v.video_id)">-->
-                                   <!--Download-->
-                                   <!--<span class="caret"></span>-->
-                               <!--</button>-->
-                               <!--<ul class="dropdown-menu" aria-labelledby="dLabel" ng-repeat="u in download_url">-->
-                                   <!--<li>-->
-                                       <!--<a href="{{u.best_download_url}}" download="{{u.best_download_url}}">{{u.title}}</a>-->
-                                   <!--</li>-->
-                                   <!--<li>-->
-                                       <!--<ul ng-repeat="o in u.other_formats">-->
-                                           <!--<li>-->
-                                               <!--<a href="{{o.url}}" download="{{o.url}}"> {{o.ext}} {{o.filesize /1000000 }} MB</a>-->
-                                           <!--</li>-->
-                                       <!--</ul>-->
-                                   <!--</li>-->
+                           <div class="dropdown">
+                               <button  class="btn " id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ng-click="download_video(v.video_id)">
+                                   Download
+                                   <span class="caret"></span>
+                               </button>
+                               <ul class="dropdown-menu" aria-labelledby="dLabel" ng-repeat="u in download_url">
+                                   <li>
+                                       <a href="{{u.best_download_url}}" download="{{u.best_download_url}}">{{u.title}}</a>
+                                   </li>
+                                   <li>
+                                       <ul ng-repeat="o in u.other_formats">
+                                           <li>
+                                               <a href="{{o.url}}" download="{{o.url}}"> {{o.ext}} {{o.filesize /1000000 }} MB</a>
+                                           </li>
+                                       </ul>
+                                   </li>
 
-                               <!--</ul>-->
-                               <!--<ul class="dropdown-menu loading_url"  aria-labelledby="dLabel">-->
-                                   <!--<li> <i class="fa fa-spinner fa-spin"></i></li>-->
-                               <!--</ul>-->
-                           <!--</div>-->
+                               </ul>
+                               <ul class="dropdown-menu loading_url"  aria-labelledby="dLabel">
+                                   <li> <i class="fa fa-spinner fa-spin"></i></li>
+                               </ul>
+                           </div>
                        </div>
                    </div>
                    <hr/>
