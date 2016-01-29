@@ -6,13 +6,13 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/wuV4BCYv-YY?autoplay=0&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
 
 
-    var url = 'https://api-videos.herokuapp.com/youtube?query=new year';
+    var url = 'https://api-videos.herokuapp.com/';
         $http.get(url)
              .success(function(data){
              $scope.videos = data.videos;
              $scope.page = data.page;
             });
-    $scope.searchvideo = function (evt) {
+    $scope.search_video = function (evt) {
         $(".loading").fadeIn(10);
         var query = $scope.query;
         var url = 'https://api-videos.herokuapp.com/youtube?query=' + query;
@@ -40,11 +40,11 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
                 $(".loading").fadeOut(1000);
 
             });
-
     };
+
     $scope.download_video = function(video_id){
         $scope.download_url = ' ';
-        var down_url = 'https://api-videos.herokuapp.com/download?query='+ video_id
+        var down_url = ' '+ video_id ;
         $http.get(down_url )
             .success(function(data){
                 //console.log(data.urls);
@@ -55,7 +55,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 
     };
 
-})
+});
 
 
 //========================      Jquery     =======================================
@@ -63,6 +63,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 $(window).load(function(){
     $(".loading").fadeOut(100);
 });
+
 $(document).ready(function(){
     $('.dropdown-toggle').dropdown();
     //for fitvid
