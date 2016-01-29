@@ -44,7 +44,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 
     $scope.download_video = function(video_id){
         $scope.download_url = ' ';
-        var down_url = 'http://api-videos.herokuapp.com/download?query='+ video_id ;
+        var down_url = 'https://api-videos.herokuapp.com/download?query='+ video_id ;
         $http.get(down_url )
             .success(function(data){
                 //console.log(data.urls);
