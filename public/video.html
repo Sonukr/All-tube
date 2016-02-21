@@ -1,0 +1,96 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">AllTube</a>
+        </div>
+        <form class="navbar-form " role="search">
+            <div class="form-group col-md-10">
+                <input type="text" class="form-control " placeholder="Search any video title or movie... " ng-model="query">
+            </div>
+            <button id="search" class="btn btn-default" ng-click="search_video()">Search</button>
+        </form>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="loading">
+    <i class="fa fa-spinner fa-spin"></i>
+</div>
+
+<div class="container main_page">
+    <br>
+
+    <div class="col-md-12 video_player" id="main">
+        <span>{{name}}</span>
+        <span class="pull-right">
+            Play videos in same page: <input type="checkbox" ng-model="play_in_own_page" ng-init="play_in_own_page = true">
+        </span>
+        <iframe width="560" height="255" ng-src="{{video_url}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <hr/>
+
+    <div class="col-md-12" >
+        <div ng-repeat="v in videos" class="video_playlist">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <img class="media-object" ng-click="play_video(v.embed_url)" ng-src="https://img.youtube.com/vi/{{v.video_id}}/mqdefault.jpg" onError="this.onerror=null;this.src='images/YouTube-logo-full_color.png';"  title="{{v.name}}">
+                </div>
+                <div class="col-md-8">
+                    <a class="video_name" href="#video/{{v.video_id}}"  ng-hide="play_in_own_page">{{ v.name }}</a>
+                    <a class="video_name" ng-click="play_video(v)" ng-show="play_in_own_page">{{ v.name }}</a>
+                    <p>{{v.meta_info}}</p>
+                    <p>{{v.description }}</p>
+                    <div class="dropdown">
+                        <button  class="btn " id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ng-click="download_video(v.video_id)">
+                            Download
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel" ng-repeat="u in download_url">
+                            <li>
+                                <a href="{{u.best_download_url}}" download="{{u.best_download_url}}">{{u.title}}</a>
+                            </li>
+                            <!--<li>-->
+                            <!--<ul ng-repeat="o in u.other_formats">-->
+                            <!--<li>-->
+                            <!--<a href="{{o.url}}" download="{{o.url}}"> {{o.ext}} {{o.format}}{{o.filesize /1000000 }} MB</a>-->
+                            <!--</li>-->
+                            <!--</ul>-->
+                            <!--</li>-->
+
+                        </ul>
+                        <ul class="dropdown-menu loading_url"  aria-labelledby="dLabel">
+                            <li> <i class="fa fa-spinner fa-spin"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+    </div>
+    <nav class="pages">
+        <ul class="pagination" >
+            <li ng-repeat="p in page" ng-click="search_by_paging(p.page_link)"><a href="#">{{p.page_no}}</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p class="col-md-4" >#All The Content Are Property Of  Youtube. </p>
+        <a href="http://www.facebook.com/sonu.kr.vtu" class="pull-right" target="_blank"> By Sonu</a>
+
+    </footer>
+    <br/>
+    <br/>
+</div>
