@@ -98,9 +98,10 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
+    $(".loading").fadeOut(100);
     $('.dropdown-toggle').dropdown();
     //for fitvid
-
+    $("#main").fitVids();
 
     $('input[type=text]').keypress(function(event){
         if(event.which == 13){
