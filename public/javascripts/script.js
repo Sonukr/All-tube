@@ -14,6 +14,15 @@ var app = angular.module('Alltube', ['ngRoute']);
 
     });
 
+    app.run(function($window){
+        $window.onload = function() {
+            $(".loading").fadeOut(100);
+            $("#main").fitVids();
+
+        };
+
+    });
+
 
 // for play video over his own url. :)
 
@@ -88,23 +97,12 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     };
 
 
-    //for initialize with a function for video player
-
-    $scope.load = function () {
-        //$(".loading").fadeOut(100);
-        $("#main").fitVids();
-    };
-
-
 });
 
 
 //========================      Jquery     =======================================
 
-$(window).load(function(){
-    $(".loading").fadeOut(100);
-    $("#main").fitVids();
-});
+
 
 $(document).ready(function(){
     $(".loading").fadeOut(100);
