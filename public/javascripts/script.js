@@ -20,11 +20,11 @@ var app = angular.module('Alltube', ['ngRoute']);
 app.controller('play', function ($scope, $routeParams, $sce) {
         //Get ID out of current URL
         var currentId = $routeParams.id;
-        $("#main").fitVids();
         $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/aGe9Hr_9YEU?autoplay=0&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
         var url_id = "https://www.youtube.com/embed/" + currentId+"?autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1";
         $scope.video_url = $sce.trustAsResourceUrl(url_id);
-        $("#main").fitVids();
+
+
 
 });
 
@@ -86,6 +86,15 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
             });
 
     };
+
+
+    //for initialize with a function for video player
+
+    $scope.load = function () {
+        $(".loading").fadeOut(100);
+        $("#main").fitVids();
+    };
+
 
 });
 
