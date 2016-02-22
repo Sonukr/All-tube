@@ -91,7 +91,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
     //for initialize with a function for video player
 
     $scope.load = function () {
-        $(".loading").fadeOut(100);
+        //$(".loading").fadeOut(100);
         $("#main").fitVids();
     };
 
