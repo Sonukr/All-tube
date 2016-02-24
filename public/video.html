@@ -32,15 +32,13 @@
 
 <div class="container main_page" >
     <br>
-    <div class="col-m-12">
+    <div class="col-m-12 margin-bottom-md">
         <span>{{name}}</span>
         <span class="pull-right">
             Play videos in same page: <input type="checkbox" ng-model="play_in_own_page" ng-init="play_in_own_page = true">
         </span>
     </div>
-    <div class="col-md-12 video_player" id="main" class="video_conteiner">
-
-
+    <div class="col-md-12 video_player" id="main">
         <iframe width="560" height="255" ng-src="{{video_url}}" frameborder="0" allowfullscreen></iframe>
     </div>
     <hr/>
