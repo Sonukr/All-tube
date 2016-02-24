@@ -14,14 +14,6 @@ var app = angular.module('Alltube', ['ngRoute']);
 
     });
 
-    app.run(function($window){
-        $window.onload = function() {
-            $(".loading").fadeOut(100);
-            $("#main").fitVids();
-
-        };
-
-    });
 
 
 // for play video over his own url. :)
@@ -38,6 +30,12 @@ app.controller('play', function ($scope, $routeParams, $sce) {
 });
 
 app.controller('MainCtrl', function($scope, $http, $sce) {
+
+
+    $scope.$on('$viewContentLoaded', function() {
+        $(".loading").fadeOut(1000);
+    });
+
 
     $scope.name = " ";
 
@@ -78,7 +76,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
             .success(function (data) {
                 $scope.videos = data.videos;
                 $scope.page = data.page;
-                $(".loading").fadeOut(1000);
+                $(".loading").fadeOut(100);
 
             });
     };
@@ -91,7 +89,7 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
                 //console.log(data.urls);
                 //console.table(data.urls, "best_download_url");
                 $scope.download_url = data.urls;
-                $(".loading_url").fadeOut(1000);
+                $(".loading_url").fadeOut(100);
             });
 
     };
@@ -103,12 +101,9 @@ app.controller('MainCtrl', function($scope, $http, $sce) {
 //========================      Jquery     =======================================
 
 
-
 $(document).ready(function(){
-    $(".loading").fadeOut(100);
+
     $('.dropdown-toggle').dropdown();
-    //for fitvid
-    $("#main").fitVids();
 
     $('input[type=text]').keypress(function(event){
         if(event.which == 13){
@@ -122,4 +117,3 @@ $(document).ready(function(){
     });
 
 });
-

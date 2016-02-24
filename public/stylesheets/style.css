@@ -11,6 +11,22 @@ nav.navbar.navbar-default.navbar-fixed-top.ng-scope{
     font-weight: 600;
     font-size: 21px;
 }
+/*for responsive video plyer*/
+.video_player {
+    position:relative;
+    padding-bottom:35.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+
+.video_player iframe, .video_player object, .video_player embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
 
 .main_page{
     margin-top: 72px;
