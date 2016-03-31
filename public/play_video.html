@@ -4,10 +4,36 @@
         <iframe width="560" height="255" ng-src="{{video_url}}" frameborder="0" allowfullscreen></iframe>
     </div>
     <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dropdown">
+                <button  class="btn " id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  ng-click="download_video(v.video_id)">
+                    Download
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dLabel" ng-repeat="u in download_url">
+                    <li>
+                        <a href="{{u.best_download_url}}" download="{{u.best_download_url}}">{{u.title}}</a>
+                    </li>
+                    <li>
+                        <ul ng-repeat="o in u.other_formats">
+                            <li>
+                                <a href="{{o.url}}" download="{{o.url}}"> {{o.ext}} {{o.format}}{{o.filesize /1000000 }} MB</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="dropdown-menu loading_url"  aria-labelledby="dLabel">
+                    <li> <i class="fa fa-spinner fa-spin"></i></li>
+                </ul>
+            </div>
+
+        </div>
         <div class="col-md-12">
             <p>This page is still in development mode.. :)</p>
         </div>
+    </div>
 
-
-</div>
+    </div>
 

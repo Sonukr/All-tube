@@ -25,13 +25,25 @@ app.controller('PortFolioCtrl', function($scope){
 });
 // for play video over his own url. :)
 
-app.controller('play', function ($scope, $routeParams, $sce) {
+app.controller('play', function ($scope, $routeParams, $sce, $http) {
         //Get ID out of current URL
         var currentId = $routeParams.id;
         $scope.video_url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/aGe9Hr_9YEU?autoplay=0&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1");
         var url_id = "https://www.youtube.com/embed/" + currentId+"?autoplay=1&rel=0&showinfo=0&modestbranding=1&autohide=1&hd=1";
         $scope.video_url = $sce.trustAsResourceUrl(url_id);
 
+    $scope.download_video = function(video_id){
+        $scope.download_url = ' ';
+        var down_url = 'https://api-videos.herokuapp.com/download?query='+ currentId ;
+        $http.get(down_url )
+            .success(function(data){
+                //console.log(data.urls);
+                //console.table(data.urls, "best_download_url");
+                $scope.download_url = data.urls;
+                $(".loading_url").fadeOut(100);
+            });
+
+    };
 
 
 });
