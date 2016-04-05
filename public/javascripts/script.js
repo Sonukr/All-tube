@@ -7,22 +7,18 @@ var app = angular.module('Alltube', ['ngRoute']);
             controller:'PortFolioCtrl'
         });
 
-        $routeProvider.when('/alltube',{
+        $routeProvider.when('/',{
             templateUrl:'/video.html',
             controller:'MainCtrl'
         });
 
-        $routeProvider.when('/alltube/:id',{
+        $routeProvider.when('/:id',{
             templateUrl:'/play_video.html',
             controller:'play'
         });
 
     });
 
-
-app.controller('PortFolioCtrl', function($scope){
-
-});
 // for play video over his own url. :)
 
 app.controller('play', function ($scope, $routeParams, $sce, $http) {

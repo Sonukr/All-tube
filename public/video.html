@@ -51,7 +51,7 @@
                     <img class="media-object" ng-click="play_video(v.embed_url)" ng-src="https://img.youtube.com/vi/{{v.video_id}}/mqdefault.jpg" onError="this.onerror=null;this.src='images/YouTube-logo-full_color.png';"  title="{{v.name}}">
                 </div>
                 <div class="col-md-8">
-                    <a class="video_name" href="#alltube/{{v.video_id}}"  ng-hide="play_in_own_page">{{ v.name }}</a>
+                    <a class="video_name" href="#/{{v.video_id}}"  ng-hide="play_in_own_page">{{ v.name }}</a>
                     <a class="video_name" ng-click="play_video(v)" ng-show="play_in_own_page">{{ v.name }}</a>
                     <p>{{v.meta_info}}</p>
                     <p>{{v.description }}</p>
